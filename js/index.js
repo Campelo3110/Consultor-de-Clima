@@ -1,10 +1,20 @@
-const container = document.querySelector(".container")
 const search = document.querySelector(".search-box button")
-const weatherBox = document.querySelector(".weather-box")
-const weatherDetailes = document.querySelector(".weather-details")
-const erroe404 = document.querySelector(".not-found")
 
-search.addEventListener("click", () => {
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        getWeather()
+    }
+})
+
+search.addEventListener("click", function() {
+    getWeather()
+})
+
+function getWeather() {
+    const container = document.querySelector(".container")
+    const weatherBox = document.querySelector(".weather-box")
+    const weatherDetailes = document.querySelector(".weather-details")
+    const erroe404 = document.querySelector(".not-found")
 
     const APIKey = "c330e2d72b04eb811971e8210d0685f6"
     const city = document.querySelector(".search-box input").value
@@ -65,4 +75,4 @@ search.addEventListener("click", () => {
         weatherBox.classList.add("fadeIn")
         container.style.height = "590px"
     })
-})
+}
